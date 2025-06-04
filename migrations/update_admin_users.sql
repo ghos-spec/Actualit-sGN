@@ -1,0 +1,5 @@
+-- Ajouter les colonnes manquantes à la table admin_users
+ALTER TABLE admin_users
+ADD COLUMN last_login DATETIME NULL,
+ADD COLUMN created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+ADD COLUMN updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP; 

@@ -1,0 +1,44 @@
+<?php
+// Créer une image de 200x200 pixels
+$image = imagecreatetruecolor(200, 200);
+
+// Définir les couleurs
+$bgColor = imagecolorallocate($image, 240, 240, 240); // Gris clair
+$textColor = imagecolorallocate($image, 100, 100, 100); // Gris foncé
+
+// Remplir le fond
+imagefill($image, 0, 0, $bgColor);
+
+// Dessiner un cercle
+imagefilledellipse($image, 100, 100, 180, 180, $textColor);
+
+// Dessiner un cercle intérieur
+imagefilledellipse($image, 100, 100, 170, 170, $bgColor);
+
+// Dessiner un symbole utilisateur
+$fontSize = 80;
+$text = "👤";
+$font = 5; // Police système par défaut
+
+// Centrer le texte
+$textBox = imagettfbbox($fontSize, 0, $font, $text);
+$textWidth = abs($textBox[4] - $textBox[0]);
+$textHeight = abs($textBox[5] - $textBox[1]);
+$x = (200 - $textWidth) / 2;
+$y = (200 + $textHeight) / 2;
+
+// Ajouter le texte
+imagestring($image, $font, $x, $y - 40, $text, $textColor);
+
+// Définir le type de contenu
+header('Content-Type: image/png');
+
+// Sauvegarder l'image
+imagepng($image, __DIR__ . '/default-avatar.png');
+
+// Libérer la mémoire
+imagedestroy($image);
+
+// Rediriger vers l'image statique
+header('Location: default-avatar.png');
+exit; 

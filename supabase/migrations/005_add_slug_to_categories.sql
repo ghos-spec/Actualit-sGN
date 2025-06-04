@@ -1,0 +1,2 @@
+ALTER TABLE categories
+ADD COLUMN slug VARCHAR(255) UNIQUE AFTER name; 

@@ -2,6 +2,8 @@
 
 Un système de gestion de contenu (CMS) pour un site d'actualités avec gestion des articles, commentaires et utilisateurs.
 
+# Lire attentivement le dossier INSTALLER.MD 
+
 ## Fonctionnalités
 
 - **Articles**
